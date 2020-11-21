@@ -1,0 +1,23 @@
+[
+  {
+    "id": "0",
+    "name": "SE_22",
+    "description": "All topics for SE_22",
+    "topics": ["2"],
+    "selected":false
+  },
+  {
+    "id": "1",
+    "name": "Code Reliability",
+    "description": "All topics of SE_08, SE_10 and SE_07",
+    "topics": ["17","15","13","12","11", "10","9","8","7"],
+    "selected":false
+  },
+  {
+    "id": "2",
+    "name": "High Quality Code",
+    "description": "Fastest Way to 'High Quality Code'",
+    "topics": ["15"],
+    "selected":false
+  }
+]

@@ -44,14 +44,17 @@ class CreateDB:
 
     @staticmethod
     def _create_topic(tx, topic):
-        result = tx.run("CREATE (a:Topic{id:$topic_id}) "
-                        "RETURN a.name", topic_id=topic["id"])
+        result = tx.run("CREATE (a:Topic{id:$topic_id,name:$name,desc:$desc,x:$x,y:$y}) "
+                        "RETURN a.name", topic_id=topic["id"], name=topic["name"], desc=topic["desc"], x=topic["x"], y=topic["y"])
         return result.single()[0]
 
     @staticmethod
     def _create_learning_ressource(tx, learning_ressource):
-        result = tx.run("CREATE (a:Learning_Ressource{id:$ressource_id}) "
-                        "RETURN a.id", ressource_id=learning_ressource["id"])
+        result = tx.run("CREATE (a:Learning_Ressource{id:$ressource_id,name:$name,desc:$desc,url:$url,mediaType:$mediaType,added:$added}) "
+                        "RETURN a.name", ressource_id=learning_ressource["id"],
+                        name=learning_ressource["name"], desc=learning_ressource["desc"],
+                        url=learning_ressource["url"], mediaType=learning_ressource["mediaType"],
+                        added=learning_ressource["added"])
         return result.single()[0]
 
     @staticmethod
@@ -67,6 +70,7 @@ class CreateDB:
         tx.run(f"MATCH (n) WHERE n.id = '{path['topic']}'" 
                         f"SET n:{path['name']}")
         return path['topic']
+
 
 def read_csv(file_path):
     data = []
@@ -91,7 +95,7 @@ if __name__ == "__main__":
     learning_ressources = read_csv("./data/csv/learning_ressources.csv")
     edges = read_csv("./data/csv/edges.csv")
     paths = read_csv("./data/csv/paths.csv")
-    db = CreateDB("bolt://localhost:7687", "neo4j", "10101",
+    db = CreateDB("bolt://localhost:7687", "neo4j", "1001",
                   topics, learning_ressources, edges, paths)
     db.import_topics()
     db.import_learning_ressources()

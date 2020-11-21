@@ -1,0 +1,19 @@
+id,name,desc,x,y
+0,OS SE,Description,800,480
+1,Scalability,Description,540,340
+2,SE_22,Description,640,290
+3,Best Practices,Description,740,340
+4,Server Architecture,Description,540,240
+5,Services,Description,740,240
+6,SE_07,Description,1100,365
+7,Version Control Systems,Description,1025,300
+8,Issue Tracking,Description,1190,300
+9,Code Reviews,Description,1190,425
+10,Application of SVC,Description,1025,425
+11,Test driven Development,Description,635,675
+12,Testing Types,Description,635,570
+13,Testing Methods,Description,485,570
+14,SE_10,Description,560,625
+15,High-quality Code,Description,220,740
+16,SE_08,Description,150,680
+17,Recognize Code Quality,Description,220,600
