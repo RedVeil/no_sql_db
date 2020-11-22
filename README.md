@@ -8,3 +8,5 @@ Setting up
 7. Create another Database with the password 1111
 8. run create_db_old.py to see our original data model
 9. run create_db.py to see our current neo4j data model
+
+Both images for the data models are also in the root folder.
