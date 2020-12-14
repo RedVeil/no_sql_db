@@ -45,7 +45,7 @@ class CreateDB:
     @staticmethod
     def _create_topic(tx, topic):
         result = tx.run("CREATE (a:Topic{id:$topic_id}) "
-                        "RETURN a.name", topic_id=topic["id"])
+                        "RETURN a.id", topic_id=topic["id"])
         return result.single()[0]
 
     @staticmethod
@@ -91,7 +91,7 @@ if __name__ == "__main__":
     learning_ressources = read_csv("./data/csv/learning_ressources.csv")
     edges = read_csv("./data/csv/edges.csv")
     paths = read_csv("./data/csv/paths.csv")
-    db = CreateDB("bolt://localhost:7687", "neo4j", "10101",
+    db = CreateDB("bolt://localhost:7687", "neo4j", "1001",
                   topics, learning_ressources, edges, paths)
     db.import_topics()
     db.import_learning_ressources()
